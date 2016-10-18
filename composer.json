@@ -1,5 +1,5 @@
 {
-  "name": "cedricblondeau/magento2-module-catalog-import-command",
+  "name": "flackend/magento2-module-catalog-import-command",
   "description": "Import catalog via console command",
   "type": "magento2-module",
   "version": "1.1.3",
