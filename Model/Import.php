@@ -14,22 +14,22 @@ class Import
     /**
      * @var \Magento\ImportExport\Model\Import
      */
-    private $importModel;
+    protected $importModel;
 
     /**
      * @var \Magento\Framework\Filesystem\Directory\ReadFactory
      */
-    private $readFactory;
+    protected $readFactory;
 
     /**
      * @var \Magento\ImportExport\Model\Import\Source\CsvFactory
      */
-    private $csvSourceFactory;
+    protected $csvSourceFactory;
 
     /**
      * @var \Magento\Indexer\Model\Indexer\CollectionFactory
      */
-    private $indexerCollectionFactory;
+    protected $indexerCollectionFactory;
 
     /**
      * @param \Magento\Eav\Model\Config $eavConfig
@@ -133,4 +133,3 @@ class Import
         return $this->importModel->getErrorAggregator()->getAllErrors();
     }
 }
-

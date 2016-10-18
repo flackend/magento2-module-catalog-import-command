@@ -18,12 +18,12 @@ class ImportCommand extends Command
     /**
      * @var \Magento\Framework\ObjectManagerInterface
      */
-    private $objectManager;
+    protected $objectManager;
 
     /**
      * @var \Magento\Framework\App\State
      */
-    private $state;
+    protected $state;
 
     /**
      * @param \Magento\Framework\ObjectManagerInterface $objectManager
@@ -45,9 +45,9 @@ class ImportCommand extends Command
     {
         $this->setName('catalog:import')
             ->setDescription('Import catalog')
-            ->addArgument('filename', InputArgument::REQUIRED, "CSV file path")
-            ->addOption('images_path', "i", InputOption::VALUE_OPTIONAL, "Images path")
-            ->addOption('behavior', "b", InputOption::VALUE_OPTIONAL, "Behavior");
+            ->addArgument('filename', InputArgument::REQUIRED, 'CSV file path')
+            ->addOption('images_path', 'i', InputOption::VALUE_OPTIONAL, 'Images path')
+            ->addOption('behavior', 'b', InputOption::VALUE_OPTIONAL, 'Behavior');
         parent::configure();
     }
 
@@ -79,10 +79,8 @@ class ImportCommand extends Command
                     $output->writeln('<error>' . $error->getErrorMessage() . ' - ' .$error->getErrorDescription() . '</error>');
                 }
             }
-
         } catch (FileNotFoundException $e) {
             $output->writeln('<error>File not found.</error>');
-
         } catch (\InvalidArgumentException $e) {
             $output->writeln('<error>Invalid source.</error>');
             $output->writeln("Log trace:");
@@ -99,4 +97,3 @@ class ImportCommand extends Command
         return $this->objectManager->create('CedricBlondeau\CatalogImportCommand\Model\Import');
     }
 }
-
